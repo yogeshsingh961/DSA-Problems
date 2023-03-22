@@ -81,6 +81,37 @@ import java.util.*;
 
 //********************** findFreqOfChar *****************
 
+//public class Main {
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        String s = sc.next();
+//        findFreqOfChar(s);
+//
+//    }
+//
+//    public static  void findFreqOfChar(String s) {
+//        // your code here
+//        int[]freq= new int[26];
+//
+//
+//        for (int i = 0; i < s.length(); i++) {
+//            freq[s.charAt(i)-'a']++;
+//        }
+//
+//       for(int i=0;  i<s.length(); i++){
+//           if(freq[s.charAt(i)-'a']!=0){
+//               System.out.print(s.charAt(i));
+//               System.out.print(freq[s.charAt(i)-'a']+" ");
+//               freq[s.charAt(i)-'a']=0;
+//           }
+//       }
+//    }
+//
+//}
+
+
+//using HashMap SC= O(n) & TC=O(n)
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -89,22 +120,17 @@ public class Main {
 
     }
 
-    public static  void findFreqOfChar(String s) {
+    public static void findFreqOfChar(String s) {
         // your code here
-        int[]freq= new int[26];
-
+        HashMap<Character, Integer> map = new HashMap();
 
         for (int i = 0; i < s.length(); i++) {
-            freq[s.charAt(i)-'a']++;
+            map.put(s.charAt(i), map.getOrDefault(s.charAt(i), 0) + 1);
         }
+        for (char c : map.keySet()) {
+            System.out.print(c);
+            System.out.print(map.get(c) + " ");
 
-       for(int i=0;  i<s.length(); i++){
-           if(freq[s.charAt(i)-'a']!=0){
-               System.out.print(s.charAt(i));
-               System.out.print(freq[s.charAt(i)-'a']+" ");
-               freq[s.charAt(i)-'a']=0;
-           }
-       }
+        }
     }
-
 }
