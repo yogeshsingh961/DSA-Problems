@@ -2,6 +2,7 @@
 
 //****************Count 7************
 
+import java.net.SocketOption;
 import java.util.*;
 // TC=O(logn) && SC= O(logn)
 
@@ -50,32 +51,60 @@ import java.util.*;
 
 //********************** revereString***************************
 
+//public class Main {
+//    public static void main(String[] args) {
+//        Scanner sc = new Scanner(System.in);
+//        String s = sc.next();
+//        String ans = revereString(s);
+//        for (int i = 0; i < ans.length(); i++) {
+//            System.out.print(ans.charAt(i));
+//        }
+//    }
+//
+//    public static  String revereString(String s) {
+//        // your code here
+//
+//        Stack<Character> st = new Stack<>();
+//
+//        for (int i = 0; i < s.length(); i++) {
+//            st.push(s.charAt(i));
+//        }
+//        String ans = "";
+//        while (!st.isEmpty()) {
+//            ans = ans + st.pop();
+//        }
+//        return ans;
+//    }
+//
+//}
+
+
+//********************** findFreqOfChar *****************
+
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String s = sc.next();
-        String ans = revereString(s);
-        for (int i = 0; i < ans.length(); i++) {
-            System.out.print(ans.charAt(i));
-        }
+        findFreqOfChar(s);
+
     }
 
-    public static  String revereString(String s) {
+    public static  void findFreqOfChar(String s) {
         // your code here
+        int[]freq= new int[26];
 
-        Stack<Character> st = new Stack<>();
 
         for (int i = 0; i < s.length(); i++) {
-            st.push(s.charAt(i));
+            freq[s.charAt(i)-'a']++;
         }
-        String ans = "";
-        while (!st.isEmpty()) {
-            ans = ans + st.pop();
-        }
-        return ans;
+
+       for(int i=0;  i<s.length(); i++){
+           if(freq[s.charAt(i)-'a']!=0){
+               System.out.print(s.charAt(i));
+               System.out.print(freq[s.charAt(i)-'a']+" ");
+               freq[s.charAt(i)-'a']=0;
+           }
+       }
     }
 
 }
-
-
-//**********************
